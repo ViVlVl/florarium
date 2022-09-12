@@ -1,4 +1,33 @@
-/* предварительная подготовка, обнуление всего */
+/* предварительная подготовка, обнуление всего, 
+подключение шрифтов, можно так (https://doka.guide/css/font-face/, https://fonts.google.com/, https://www.fontsquirrel.com/) 
+@font-face {
+    font-family: 'roboto';
+    src: url('font/roboto-bold-webfont.woff2') format('woff2'),
+        url('roboto-bold-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'roboto';
+    src: url('roboto-italic-webfont.woff2') format('woff2'),
+        url('roboto-italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+
+}
+
+@font-face {
+    font-family: 'roboto';
+    src: url('roboto-regular-webfont.woff2') format('woff2'),
+        url('roboto-regular-webfont.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+
+}
+*/
+
 * {
     box-sizing: border-box;
 }
@@ -11,6 +40,11 @@ html {
 
 body {
     /* ШРИФТ */
+    font-family: 'Roboto', sans-serif;
+    /* Включаем принудительное сглаживание  шрифтов браузером*/
+    -webkit-font-smoothing: antialiasing;
+    -moz-osx-font-smoothing: graycscale;
+    color: #000000;
 }
 
 ul {
@@ -58,7 +92,7 @@ a {
 
 /* header */
 .header {
-    background-color: antiquewhite;
+    /* background-color: antiquewhite; */
 }
 
 .header__container {
@@ -70,9 +104,10 @@ a {
 }
 
 .logo {
-    background-color: aqua;
+    /* background-color: aqua; */
     display: flex;
     align-items: center;
+
 }
 
 .logo__img-wrap {
@@ -84,6 +119,8 @@ a {
     margin-right: 16px;
     display: flex;
     align-items: center;
+    /* чтоб картинка не ужималась текстом при сжимании окна */
+    flex-shrink: 0;
 
 }
 
@@ -97,30 +134,203 @@ a {
     line-height: 131.19%;
 }
 
-.logo__title {}
+.logo__title {
+    font-weight: 700;
+    font-size: 18px;
+}
 
-.logo_subtitle {}
+.logo_subtitle {
+    font-weight: 300;
+    font-size: 14px;
+}
 
-.nav {}
+.nav {
+    margin: 0px 30px;
+}
 
-.nav__list {}
+.nav__list {
+    display: flex;
+}
 
-.nav__item {}
+.nav__item {
+    margin-right: 54px;
+    /* выводим линию при наведении на ссылку, делаем прозрачной */
+    border-bottom: 1px solid transparent;
+    /* Анимация: https://doka.guide/css/transition/ https://webref.ru/css/transition https://cubic-bezier.com/ */
+    transition: all 1s cubic-bezier(.42, .78, .96, .59);
+}
+
+.nav__item:hover {
+    /* нагруженной линии меняем цвет */
+    border-bottom-color: #000000;
+}
+
+
+.nav_item:last-child {
+    margin-right: 0;
+}
+
+.nav__item:hover .nav_link {
+    /* при наведении на линк наводим тень без смещения */
+    text-shadow: 0px 0px 1px #000000;
+}
 
 .nav_link {}
 
 .tel {}
 
-.cart {}
+.cart {
+    display: flex;
+    align-items: center;
+    background: #FFFFFF;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.14);
+    border-radius: 50px;
+    overflow: hidden;
+    padding-right: 15px;
+}
 
-.cart__img-wrap {}
+.cart__img-wrap {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #FFBF42;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
 
-.cart__img {}
 
-.cart__price {}
+}
 
-.cart__value {}
+.cart__img-wrap:hover {
+    background: #F2b53b;
+}
 
-.cart__btn {}
+.cart__img-wrap:active {
+    transform: translate(0px, 1px);
+}
 
-.cart__btn-img {}
+.cart__img {
+    width: 58%;
+    height: 58%;
+    object-fit: contain;
+
+}
+
+.cart__price {
+    margin: 0px 18px 0px 13px;
+    font-weight: 700;
+    /* прием позволяет убрать расстояние между 45,00 и $. Font size переопределяем в cart__value */
+    font-size: 0;
+}
+
+.cart__value {
+    font-size: 14px;
+}
+
+.cart__btn {
+    display: flex;
+    border: none;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+    width: 10px;
+    height: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart__btn-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* КОНЕЦ ЗАГОЛОВКА */
+
+.hero {
+    height: 573px;
+    display: flex;
+
+}
+
+.hero__desc,
+.hero__slider {
+    height: 100%;
+    position: relative;
+}
+
+.hero__desc {
+    flex: 0 0 100%;
+
+}
+
+.hero__desc::after {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: #FFFFFF;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.25);
+    border-radius: 0px 500px 500px 0px;
+    top: 0;
+    right: 50%;
+    z-index: -10;
+
+}
+
+.hero__content {}
+
+.title {}
+
+.subtitle {}
+
+.hero__subtitle {}
+
+.btn {}
+
+.hero__link {}
+
+.hero__slider {
+    flex: 0 0 50%;
+    transform: translate(-100%, 0);
+    overflow: hidden;
+    background: #FFFFFF;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.25);
+    border-radius: 500px 0px 0px 500px;
+}
+
+.dots {
+    display: flex;
+    position: absolute;
+    margin-left: 46%;
+    bottom: 38px;
+
+}
+
+.dot {
+    margin-right: 14px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.dot:last-child {
+    margin-right: 0px;
+
+}
+
+.dot:hover {
+    background-color: #F2b53b;
+}
+
+.hero__slide {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
