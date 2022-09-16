@@ -313,8 +313,6 @@ a {
 .hero {
     height: 573px;
     display: flex;
-    /* расстояние между модулями desc и slider */
-    column-gap: 30px;
 
 }
 
