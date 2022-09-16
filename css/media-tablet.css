@@ -1,0 +1,9 @@
+@media (max-width:768px) {
+    .header .nav {
+        display: none;
+    }
+
+    .header__burger {
+        display: block;
+    }
+}
