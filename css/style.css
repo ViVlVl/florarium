@@ -657,13 +657,28 @@ a {
 
 .feedback__text-block {}
 
-.feedback__user {}
+.feedback__user {
+    display: flex;
+    align-items: baseline;
+    column-gap: 10px;
+   }
 
-.feedback__name {}
+.feedback__name {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 131.19%;
+}
 
-.feedback__profession {}
+.feedback__profession {
+    color: #C4C4C4;
+}
 
-.feedback__text {}
+.feedback__text {
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 131.19%;
+    margin-top: 13px;
+}
 
 .feedpack__avatar {
     position: absolute;
