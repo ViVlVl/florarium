@@ -37,4 +37,17 @@
         width: 100%;
         margin-bottom: 23px;
     }
+
+    .footer__container {
+        flex-direction: column;
+        row-gap: 23px;
+    }
+
+    .footer__content {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        width: 100%;
+    }
+
 }

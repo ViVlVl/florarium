@@ -227,4 +227,30 @@
         height: 100%;
         object-fit: contain;
     }
+
+    .footer {
+        padding: 22px 0px 22px;
+
+    }
+
+    .footer__container {
+        align-items: center;
+    }
+
+    .footer__content {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+
+    .footer .nav {
+        margin: 32px 0px 43px;
+    }
+
+    . .tel {}
+
+    .footer__link {}
+
+    .arrow {}
+
 }
